@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<biiblioteca>
+  <libros>
+    <libro>
+      <autor>Pablo García Gil</autor>
+      <ISBN>22227777</ISBN>
+    </libro>
+  </libros>
+</biiblioteca>
