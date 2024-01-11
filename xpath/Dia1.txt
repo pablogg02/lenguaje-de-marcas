@@ -29,27 +29,28 @@ Ejercicio 2 (Ciclos).
 
 1: Nombre del instituto.
 
-Solución:
+Solución: /ies/nombre
 
 2: Página web del instituto.
 
-Solución: 
+Solución: /ies/web
 
 3: Nombre de los ciclos formativos.
 
-Solución:
+Solución: /ies/ciclos/ciclo/nombre
 
 4: Siglas por las que se conocen los ciclos formativos.
 
-Solución:
+Solución: /ies/ciclos/ciclo/@id
 
 5: Años en los que se publicaron los decretos de título de los ciclos formativos.
 
-Solución:
+Solución: /ies/ciclos/ciclo/decretoTitulo/@año
 
 6: Ciclos formativos de Grado Medio (se trata de obtener el elemento completo).
 
-Solución:
+Solución: /ies/ciclos/ciclo[grado='Medio']
+
 7: Nombre de los ciclos formativos de Grado Superior.
 
 Solución:
