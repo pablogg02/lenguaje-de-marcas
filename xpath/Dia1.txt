@@ -1,0 +1,63 @@
+Ejercicio 1 (Agenda).
+
+1: Nombre del propietario de la agenda.
+
+Solución: /agenda/propietario/identificadores/nombre
+
+2: Teléfono de casa del propietario.
+
+Solución: /agenda/propietario/telefonos/casa
+
+3: Nombres y apellidos de los contactos de la agenda.
+
+Solución: /agenda/contactos/persona/identificadores
+
+4: Nombre e identificador de cada contacto.
+
+Solución: /agenda/contactos/persona/identificadores/nombre 
+	    /agenda/contactos/persona/@id
+
+5: Datos del contacto con identificador p02.
+
+Solución: /agenda/contactos/persona[@id='p02']
+
+6: Identificadores de los contactos que tienen móvil.
+
+Solución: /agenda/contactos/persona[telefonos/movil]/@id
+
+Ejercicio 2 (Ciclos).
+
+1: Nombre del instituto.
+
+Solución:
+
+2: Página web del instituto.
+
+Solución: 
+
+3: Nombre de los ciclos formativos.
+
+Solución:
+
+4: Siglas por las que se conocen los ciclos formativos.
+
+Solución:
+
+5: Años en los que se publicaron los decretos de título de los ciclos formativos.
+
+Solución:
+
+6: Ciclos formativos de Grado Medio (se trata de obtener el elemento completo).
+
+Solución:
+7: Nombre de los ciclos formativos de Grado Superior.
+
+Solución:
+
+8: Nombre de los ciclos formativos anteriores a 2010.
+
+Solución:
+
+9: Nombre de los ciclos formativos de 2008 o 2010.
+
+Solución
