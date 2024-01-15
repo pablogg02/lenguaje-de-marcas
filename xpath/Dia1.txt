@@ -25,7 +25,7 @@ Solución: /agenda/contactos/persona[@id='p02']
 
 Solución: /agenda/contactos/persona[telefonos/movil]/@id
 
-Ejercicio 2 (Ciclos).
+Ejercicio 2 (Ciclos_2).
 
 1: Nombre del instituto.
 
@@ -63,7 +63,7 @@ Solución:
 
 Solución
 
-Ejercicio 3 (Inventario).
+Ejercicio 3 (Inventario_2).
 
 1: Extraer todos los elementos <peso> (etiqueta incluida).
 
