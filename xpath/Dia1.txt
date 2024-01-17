@@ -1,4 +1,4 @@
-Ejercicio 1 (Agenda).
+Ejercicio 3 (Agenda).
 
 1: Nombre del propietario de la agenda.
 
@@ -25,7 +25,7 @@ Solución: /agenda/contactos/persona[@id='p02']
 
 Solución: /agenda/contactos/persona[telefonos/movil]/@id
 
-Ejercicio 2 (Ciclos_2).
+Ejercicio 4 (Ciclos_2).
 
 1: Nombre del instituto.
 
@@ -63,7 +63,7 @@ Solución: /ies/ciclos/ciclo[decretoTitulo/@año < 2010]/nombre
 
 Solución: /ies/ciclos/ciclo[decretoTitulo/@año = 2008 or decretoTitulo/@año = 2010]/nombre
 
-Ejercicio 3 (Inventario_2).
+Ejercicio 5 (Inventario_2).
 
 1: Extraer todos los elementos <peso> (etiqueta incluida).
 
@@ -101,7 +101,7 @@ Ejercicio 3 (Inventario_2).
 
 /inventario/producto[peso[@unidad='kg']>0.25]/@codigo
 
-Ejercicio 4 (modulos_2).
+Ejercicio 6 (modulos_2).
 
 1. Nombre de los módulos que se imparten en el instituto.
 
