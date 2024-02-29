@@ -61,3 +61,36 @@ return $impresora
 Solución:
 let $maxPeso := max(//impresora/peso)
 return //impresora[peso = $maxPeso]
+
+Crear una tabla (o lista) con el número de serie, marca y modelo de las impresoras?
+
+Solución:
+for $impresora in //impresora
+      return
+      <tr>
+        <td>{$impresora/@numSerie}</td>
+        <td>{$impresora/marca/text()}</td>
+        <td>{$impresora/modelo/text()}</td>
+      </tr>
+
+o
+
+<html>
+<head>
+  <title>Documento HTML generado por XQuery</title>
+</head>
+<body>
+  <h1>Lista de impresoras</h1>
+  <ul>
+  {
+    for $impresora in //impresora
+    return
+    <li>
+      <strong>Número de serie:</strong> {$impresora/@numSerie/text()}<br/>
+      <strong>Marca:</strong> {$impresora/marca/text()}<br/>
+      <strong>Modelo:</strong> {$impresora/modelo/text()}<br/>
+    </li>
+  }
+  </ul>
+</body>
+</html>
