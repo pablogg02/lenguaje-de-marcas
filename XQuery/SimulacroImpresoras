@@ -1,0 +1,63 @@
+1. El modelo de las impresoras de tipo láser.
+
+Solución: 
+for $impresora in //impresora[@tipo = 'láser']
+return $impresora/modelo/text()
+
+2. La marca y modelo (separados por un espacio en blanco) de las impresoras con más de un tamaño.
+
+Solución: 
+for $impresora in //impresora[count(tamano) > 1]
+return concat($impresora/marca/text(), " ", $impresora/modelo/text())
+
+3. La marca y modelo (separados por un espacio en blanco) de las impresoras con tamaño A3 (pueden tener otros).
+
+Solución:
+for $impresora in //impresora[tamano = 'A3']
+return concat($impresora/marca/text(), " ", $impresora/modelo/text())
+
+4. La marca y modelo (separados por un espacio en blanco) de las impresoras con tamaño A3 como único tamaño.
+
+Solución:
+for $impresora in //impresora[tamano = 'A3' and count(tamano) = 1]
+return concat($impresora/marca/text(), " ", $impresora/modelo/text())
+
+5. El modelo de las impresoras en red.
+
+Solución:
+for $impresora in //impresora[enred]
+return $impresora/modelo/text()
+
+6. La cantidad de impresoras guardadas en el fichero XML.
+
+Solución:
+let $numeroImpresoras := count(//impresora)
+return $numeroImpresoras
+
+7. Las impresoras (elementos <impresora>) compradas en 2018 o después. Los resultados se deben ordenar por año de compra (orden ascendente).
+
+Solución:
+for $impresora in //impresora
+where $impresora/@compra >= "2018"
+order by $impresora/@compra
+return $impresora
+
+8. Las impresoras (elementos <impresora>) con un peso igual o superior a 5 kg.
+
+Solución:
+for $impresora in //impresora
+where $impresora/peso >= "5"
+return $impresora
+
+9. Las impresoras (elementos <impresora>) que tienen cartucho con código C-456P.
+
+Solución: 
+for $impresora in //impresora
+where $impresora/cartucho = "C-456P"
+return $impresora
+
+10. La impresora (elemento <impresora>) más pesada.
+
+Solución:
+let $maxPeso := max(//impresora/peso)
+return //impresora[peso = $maxPeso]
