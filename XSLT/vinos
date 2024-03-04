@@ -1,1 +1,189 @@
+1. Muestra el primer valor
 
+Solución:
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+    <body>
+      <h2>Información del Primer Vino</h2>
+      <table border="1">
+        <tr>
+          <th>Nome</th>
+          <th>Prezo</th>
+        </tr>
+        <xsl:apply-templates select="viños/viño[1]"/>
+      </table>
+    </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+2. Muestra todos los valores.
+
+Solución:
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+    <body>
+      <h2>Todos los vinos</h2>
+      <table border="1">
+        <tr>
+          <th>Nome</th>
+          <th>Prezo</th>
+        </tr>
+        <xsl:apply-templates select="viños/viño"/>
+      </table>
+    </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+3. Ordena los valores.
+
+Solución:
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+    <body>
+      <h2>Valores ordenados</h2>
+      <table border="1">
+        <tr>
+          <th>Nome</th>
+          <th>Prezo</th>
+        </tr>
+        <xsl:apply-templates select="viños/viño">
+         <xsl:sort select="prezo" data-type="number"/>
+        </xsl:apply-templates>
+      </table>
+    </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+a) ¿Qué pasa si no ponemos el data type?
+Deja de estar ordenado por el precio. 
+
+b) ¿Cuál es el orden por defecto?
+-
+
+c) ¿Para qué sirve case-order?
+Case order tiene dos valores, sirve para dar prioridad a mayúsculas o a minúsculas.
+
+4. 
+
+Solución:
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+    <body>
+      <h2>Vinos con precio mayor a 9 euros</h2>
+      <table border="1">
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+        </tr>
+        <xsl:apply-templates select="viños/viño">
+         <xsl:sort select="prezo" data-type="number"/>
+        </xsl:apply-templates>
+      </table>
+    </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <xsl:if test="prezo > 9">
+    <tr>
+      <td><xsl:value-of select="nome"/></td>
+      <td><xsl:value-of select="prezo"/></td>
+    </tr>
+  </xsl:if>
+</xsl:template>
+
+</xsl:stylesheet>
+
+5. Filtra múltiples opciones.
+
+Solución: ***Corregir
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+   <head>
+    <style>
+     .rojo {color: red; }
+     .verde {color: green; }
+    </style>
+   </head>
+    <body>
+      <h2>Vinos con Precio Superior a 9 euros</h2>
+      <table border="1">
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+        </tr>
+        <xsl:apply-templates select="viños/viño">
+         <xsl:sort select="prezo" data-type="number"/>
+        </xsl:apply-templates>
+      </table>
+    </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <xsl:choose>
+   <xsl:when test="prezo < 10">
+    <tr>
+      <td class="verde"><xsl:value-of select="nome"/></td>
+      <td class="verde"><xsl:value-of select="prezo"/></td>
+    </tr>
+   </xsl:when>
+  <xsl:when test="prezo > 30">
+     <tr>
+      <td class="rojo"><xsl:value-of select="nome"/></td>
+      <td class="rojo"><xsl:value-of select="prezo"/></td>
+     </tr>
+  </xsl:when>
+  <xsl:otherwise>
+     <tr>
+      <td><xsl:value-of select="nome"/></td>
+      <td><xsl:value-of select="prezo"/></td>
+     </tr>  
+  </xsl:otherwise>
+ 
+  </xsl:choose>
+</xsl:template>
+
+</xsl:stylesheet>
